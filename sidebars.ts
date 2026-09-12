@@ -8,6 +8,7 @@ const sidebars: SidebarsConfig = {
     'relations',
     'field-generators',
     'api',
+    'cli',
     'exporting',
     'examples',
   ],
