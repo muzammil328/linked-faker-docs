@@ -1,0 +1,30 @@
+.features {
+  width: 100%;
+  padding: 3.5rem 0 4.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--ifm-color-emphasis-300) 70%, transparent);
+  background: color-mix(in srgb, var(--ifm-background-color) 92%, var(--ifm-color-primary) 8%);
+}
+
+.feature {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  margin: 0 0 0.55rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ifm-color-primary);
+}
+
+.title {
+  margin-bottom: 0.55rem;
+  letter-spacing: -0.03em;
+}
+
+.description {
+  margin: 0;
+  max-width: 34ch;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.55;
+}

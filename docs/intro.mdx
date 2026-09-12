@@ -1,0 +1,56 @@
+---
+title: Introduction
+sidebar_position: 1
+slug: /
+---
+
+# linked-faker
+
+Generate realistic relational test data with valid relationships — from one declarative schema.
+
+Random value generators give you one field at a time. **linked-faker** gives you a whole dataset — users, orders, products — wired together with valid foreign keys.
+
+No manual IDs. No seed scripts. No broken foreign keys.
+
+```ts
+import { defineSchema, generate } from 'linked-faker';
+
+const schema = defineSchema({
+  users: { count: 10, idPrefix: 'usr', fields: { name: 'person.fullName' } },
+  orders: {
+    count: 50,
+    idPrefix: 'ord',
+    relations: { userId: { ref: 'users' } },
+  },
+});
+
+const data = generate(schema, { seed: 42 });
+// data.orders[0] → { id: 'ord_1', userId: 'usr_7' }
+```
+
+## Why
+
+| Problem | linked-faker |
+|---------|--------------|
+| Hand-written seed scripts drift from the schema | One declarative schema describes the whole dataset |
+| Foreign keys break when counts change | Every `ref` is resolved against real generated ids |
+| Flaky fixtures | `seed` makes output byte-for-byte reproducible |
+| Getting data into a database | `exportAs` writes JSON, CSV, or SQL inserts |
+
+## Install
+
+```bash
+npm install linked-faker
+```
+
+Zero required dependencies — the field generators are built in. Node 18 or newer, ESM and CJS builds both shipped.
+
+## Where to go next
+
+- **[Getting Started](./getting-started.md)** — your first dataset in five minutes
+- **[Schema](./schema.md)** — entities, counts, and ids
+- **[Relations](./relations.md)** — belongs-to, many-to-many, and cascading counts
+- **[Field Generators](./field-generators.md)** — built-in paths, helpers, and custom functions
+- **[API](./api.md)** — the full export surface
+- **[Exporting](./exporting.md)** — JSON, CSV, and SQL output
+- **[Examples](./examples.md)** — complete end-to-end schemas
